@@ -648,12 +648,6 @@ public partial class QQBotSocketClient : BaseSocketClient, IQQBotClient
             case "GUILD_MEMBER_REMOVE":
                 await HandleGuildMemberRemovedAsync(payload).ConfigureAwait(false);
                 break;
-            case "GROUP_MEMBER_ADD":
-                await HandleGroupMemberAddedAsync(payload).ConfigureAwait(false);
-                break;
-            case "GROUP_MEMBER_REMOVE":
-                await HandleGroupMemberRemovedAsync(payload).ConfigureAwait(false);
-                break;
             case "AUDIO_OR_LIVE_CHANNEL_MEMBER_ENTER":
                 await HandleAudioOrLiveChannelMemberEnterAsync(payload).ConfigureAwait(false);
                 break;
@@ -727,6 +721,12 @@ public partial class QQBotSocketClient : BaseSocketClient, IQQBotClient
                 break;
             case "GROUP_MSG_RECEIVE":
                 await HandleGroupMessageReceivedAsync(payload).ConfigureAwait(false);
+                break;
+            case "GROUP_MEMBER_ADD":
+                await HandleGroupMemberAddedAsync(payload).ConfigureAwait(false);
+                break;
+            case "GROUP_MEMBER_REMOVE":
+                await HandleGroupMemberRemovedAsync(payload).ConfigureAwait(false);
                 break;
 
             #endregion

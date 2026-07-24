@@ -543,6 +543,7 @@ public abstract partial class BaseSocketClient
     ///     <item>
     ///         <see cref="QQBot.Cacheable{TEntity,TId}"/> 参数是执行该操作的群成员。如果缓存中存在此用户实体，那么该结构内包含该
     ///         <see cref="QQBot.WebSocket.SocketUser"/> 群组用户；否则，包含 <see cref="System.String"/> 用户 ID。
+    ///         如果网关没有提供执行该操作的群成员，此参数为 <c>null</c>。
     ///         如果网关没有提供实体的详细信息，由于目前无法通过 API 获取此用户实体，因此
     ///         <see cref="QQBot.Cacheable{TEntity,TId}.GetOrDownloadAsync"/> 总会返回 <c>null</c>。
     ///     </item>
@@ -572,6 +573,7 @@ public abstract partial class BaseSocketClient
     ///     <item>
     ///         <see cref="QQBot.Cacheable{TEntity,TId}"/> 参数是执行该操作的群成员。如果缓存中存在此用户实体，那么该结构内包含该
     ///         <see cref="QQBot.WebSocket.SocketUser"/> 群组用户；否则，包含 <see cref="System.String"/> 用户 ID。
+    ///         如果网关没有提供执行该操作的群成员，此参数为 <c>null</c>。
     ///         如果网关没有提供实体的详细信息，由于目前无法通过 API 获取此用户实体，因此
     ///         <see cref="QQBot.Cacheable{TEntity,TId}.GetOrDownloadAsync"/> 总会返回 <c>null</c>。
     ///     </item>

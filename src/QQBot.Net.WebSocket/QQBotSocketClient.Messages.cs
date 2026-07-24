@@ -743,11 +743,7 @@ public partial class QQBotSocketClient
     private async Task HandleGroupMemberAddedAsync(object? payload)
     {
         if (DeserializePayload<GroupMemberEvent>(payload) is not { } data) return;
-        if (GetOrCreateGroupChannel(State, data.GroupOpenid) is not { } channel)
-        {
-            await UnknownChannelAsync(nameof(GroupMemberJoined), data.GroupOpenid, payload).ConfigureAwait(false);
-            return;
-        }
+        SocketGroupChannel channel = GetOrCreateGroupChannel(State, data.GroupOpenid);
 
         string? memberId = data.MemberOpenId ?? data.UserOpenId ?? data.UserId;
         if (memberId is null)
@@ -768,11 +764,7 @@ public partial class QQBotSocketClient
     private async Task HandleGroupMemberRemovedAsync(object? payload)
     {
         if (DeserializePayload<GroupMemberEvent>(payload) is not { } data) return;
-        if (GetOrCreateGroupChannel(State, data.GroupOpenid) is not { } channel)
-        {
-            await UnknownChannelAsync(nameof(GroupMemberLeft), data.GroupOpenid, payload).ConfigureAwait(false);
-            return;
-        }
+        SocketGroupChannel channel = GetOrCreateGroupChannel(State, data.GroupOpenid);
 
         string? memberId = data.MemberOpenId ?? data.UserOpenId ?? data.UserId;
         if (memberId is null)
